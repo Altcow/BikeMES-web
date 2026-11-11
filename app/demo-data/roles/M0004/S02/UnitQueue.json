@@ -1,0 +1,1 @@
+{"GET /s02/unitqueue/departments":{"body":[{"code":"SAL","id":2,"isMine":true,"isPrimary":true,"name":"業務課"}],"header":{"msg":"成功","msgCode":"0000","traceId":null}},"GET /s02/unitqueue/todos":{"body":[],"header":{"msg":"成功","msgCode":"0000","traceId":null}}}

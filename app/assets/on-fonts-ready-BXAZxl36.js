@@ -1,0 +1,1 @@
+import{N as e,j as t}from"./runtime-core.esm-bundler-yYatEv2G.js";import{n}from"./utils-DFnY1Y5X.js";var r=n?document?.fonts?.ready:void 0,i=!1;r===void 0?i=!0:r.then(()=>{i=!0});function a(n){if(i)return;let a=!1;e(()=>{i||r?.then(()=>{a||n()})}),t(()=>{a=!0})}export{a as t};

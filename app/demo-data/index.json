@@ -1,0 +1,1163 @@
+{
+  "version": 1,
+  "snapshotAt": "2026-11-11T16:39:22",
+  "roles": [
+    {
+      "code": "M0002",
+      "title": "總經理",
+      "desc": "全公司查詢與重大核准",
+      "user": {
+        "account": "M0002",
+        "userName": "林志明",
+        "empNo": "M109030201",
+        "roles": [
+          "GMO"
+        ],
+        "rights": {
+          "S01.Item": "V",
+          "S01.Product": "V",
+          "S01.Customer": "V",
+          "S01.Vendor": "V",
+          "S01.Code": "V",
+          "S01.Reason": "V",
+          "S02.SalesOrder": "V",
+          "S02.Priority": "VA",
+          "S02.WorkOrder": "V",
+          "S02.Gantt": "V",
+          "S02.ReleaseNormal": "V",
+          "S02.ReleaseManager": "V",
+          "S02.Print": "V",
+          "S02.Batch": "V",
+          "S02.Planning": "V",
+          "S03.Stock": "V",
+          "S03.Issue": "V",
+          "S03.Trace": "V",
+          "S03.Mrp": "V",
+          "S03.Purchase": "V",
+          "S03.Outsource": "V",
+          "S03.Dispatch": "V",
+          "S03.Adjust": "V",
+          "S04.Exception": "V",
+          "S04.Inspection": "V",
+          "S04.Rush": "V",
+          "S04.Meeting": "V",
+          "S04.Alert": "V",
+          "S05.Settlement": "V",
+          "S05.Payment": "V",
+          "S05.ExtraCost": "VE",
+          "S05.Finance": "VE",
+          "S09.Org": "V",
+          "S09.Account": "V",
+          "S09.RoleAssignPaper": "V",
+          "S09.RoleAssignApprove": "V",
+          "S09.Delegation": "V",
+          "S09.PermissionRequest": "V",
+          "S09.Settings": "V",
+          "S09.Audit": "V",
+          "S02.ReleaseGate": "V",
+          "S04.Special": "V",
+          "S03.Prep": "V",
+          "S02.Transfer": "V",
+          "S02.Receive": "V",
+          "S05.VendorQuote": "V",
+          "S02.Shipment": "V",
+          "S02.Capacity": "V",
+          "S03.Remnant": "V",
+          "S04.Claim": "V",
+          "S09.Notify": "VCU",
+          "S02.MachineRepair": "VA",
+          "S03.DeliveryTrace": "V",
+          "S03.MaterialCard": "V",
+          "S04.Diversion": "V",
+          "S04.DiversionQa": "V",
+          "S09.Parameter": "V",
+          "S03.Scrap": "V",
+          "S09.Asset": "VEP",
+          "S05.ScrapTax": "VEP",
+          "S05.Ledger": "VEP",
+          "S05.Closing": "VEP",
+          "S05.CnGoods": "VEP",
+          "S04.QcSetup": "V",
+          "S09.Dashboard": "V",
+          "S09.Report": "VE"
+        },
+        "departments": [
+          {
+            "code": "ADM",
+            "name": "總經理室",
+            "jobTitle": "總經理",
+            "isManager": true
+          }
+        ],
+        "assignedRoles": []
+      }
+    },
+    {
+      "code": "M0003",
+      "title": "總經理室",
+      "desc": "全公司唯讀為主的幕僚查詢",
+      "user": {
+        "account": "M0003",
+        "userName": "蔡佩珊",
+        "empNo": "M111071501",
+        "roles": [
+          "GMO"
+        ],
+        "rights": {
+          "S01.Item": "V",
+          "S01.Product": "V",
+          "S01.Customer": "V",
+          "S01.Vendor": "V",
+          "S01.Code": "V",
+          "S01.Reason": "V",
+          "S02.SalesOrder": "V",
+          "S02.Priority": "VA",
+          "S02.WorkOrder": "V",
+          "S02.Gantt": "V",
+          "S02.ReleaseNormal": "V",
+          "S02.ReleaseManager": "V",
+          "S02.Print": "V",
+          "S02.Batch": "V",
+          "S02.Planning": "V",
+          "S03.Stock": "V",
+          "S03.Issue": "V",
+          "S03.Trace": "V",
+          "S03.Mrp": "V",
+          "S03.Purchase": "V",
+          "S03.Outsource": "V",
+          "S03.Dispatch": "V",
+          "S03.Adjust": "V",
+          "S04.Exception": "V",
+          "S04.Inspection": "V",
+          "S04.Rush": "V",
+          "S04.Meeting": "V",
+          "S04.Alert": "V",
+          "S05.Settlement": "V",
+          "S05.Payment": "V",
+          "S05.ExtraCost": "VE",
+          "S05.Finance": "VE",
+          "S09.Org": "V",
+          "S09.Account": "V",
+          "S09.RoleAssignPaper": "V",
+          "S09.RoleAssignApprove": "V",
+          "S09.Delegation": "V",
+          "S09.PermissionRequest": "V",
+          "S09.Settings": "V",
+          "S09.Audit": "V",
+          "S02.ReleaseGate": "V",
+          "S04.Special": "V",
+          "S03.Prep": "V",
+          "S02.Transfer": "V",
+          "S02.Receive": "V",
+          "S05.VendorQuote": "V",
+          "S02.Shipment": "V",
+          "S02.Capacity": "V",
+          "S03.Remnant": "V",
+          "S04.Claim": "V",
+          "S09.Notify": "VCU",
+          "S02.MachineRepair": "VA",
+          "S03.DeliveryTrace": "V",
+          "S03.MaterialCard": "V",
+          "S04.Diversion": "V",
+          "S04.DiversionQa": "V",
+          "S09.Parameter": "V",
+          "S03.Scrap": "V",
+          "S09.Asset": "VEP",
+          "S05.ScrapTax": "VEP",
+          "S05.Ledger": "VEP",
+          "S05.Closing": "VEP",
+          "S05.CnGoods": "VEP",
+          "S04.QcSetup": "V",
+          "S09.Dashboard": "V",
+          "S09.Report": "VE"
+        },
+        "departments": [
+          {
+            "code": "ADM",
+            "name": "總經理室",
+            "jobTitle": "總經理特助",
+            "isManager": false
+          }
+        ],
+        "assignedRoles": []
+      }
+    },
+    {
+      "code": "M0004",
+      "title": "業務",
+      "desc": "客戶訂單、出貨單開立",
+      "user": {
+        "account": "M0004",
+        "userName": "吳欣怡",
+        "empNo": "M113020601",
+        "roles": [
+          "SALES"
+        ],
+        "rights": {
+          "S01.Item": "V",
+          "S01.Customer": "VCU",
+          "S01.Code": "V",
+          "S02.SalesOrder": "VCUP",
+          "S02.Priority": "VC",
+          "S02.WorkOrder": "V",
+          "S02.Gantt": "V",
+          "S03.Stock": "V",
+          "S04.Exception": "VC",
+          "S04.Alert": "V",
+          "S02.Shipment": "VCUP",
+          "S04.Claim": "VCU",
+          "S09.Notify": "VCU"
+        },
+        "departments": [
+          {
+            "code": "SAL",
+            "name": "業務課",
+            "jobTitle": "業務專員",
+            "isManager": false
+          }
+        ],
+        "assignedRoles": []
+      }
+    },
+    {
+      "code": "M0005",
+      "title": "生管主管",
+      "desc": "工單、放行、合批與各項核准",
+      "user": {
+        "account": "M0005",
+        "userName": "王建宏",
+        "empNo": "M108090101",
+        "roles": [
+          "PMC_MGR"
+        ],
+        "rights": {
+          "S01.Item": "VE",
+          "S01.Product": "VCUXAE",
+          "S01.Customer": "V",
+          "S01.Vendor": "V",
+          "S01.Code": "VCU",
+          "S01.Reason": "V",
+          "S02.SalesOrder": "V",
+          "S02.Priority": "VA",
+          "S02.WorkOrder": "VCUXAEP",
+          "S02.Gantt": "VU",
+          "S02.ReleaseNormal": "VA",
+          "S02.ReleaseManager": "VA",
+          "S02.Print": "VP",
+          "S02.Batch": "VCUA",
+          "S02.Planning": "VCUA",
+          "S03.Stock": "VE",
+          "S03.Issue": "V",
+          "S03.Trace": "VE",
+          "S03.Mrp": "VCAE",
+          "S03.Purchase": "V",
+          "S03.Outsource": "V",
+          "S03.Dispatch": "VCUXP",
+          "S03.Adjust": "V",
+          "S04.Exception": "VCA",
+          "S04.Inspection": "V",
+          "S04.Rush": "VCA",
+          "S04.Meeting": "VCU",
+          "S04.Alert": "VCU",
+          "S05.ExtraCost": "VC",
+          "S09.Org": "VU",
+          "S09.RoleAssignApprove": "VA",
+          "S09.Delegation": "C",
+          "S09.PermissionRequest": "VC",
+          "S09.Audit": "V",
+          "S02.ReleaseGate": "VCUA",
+          "S04.Special": "VA",
+          "S03.Prep": "VCUP",
+          "S02.Transfer": "VCUXP",
+          "S02.Receive": "VC",
+          "S05.VendorQuote": "V",
+          "S02.Shipment": "V",
+          "S02.Capacity": "VU",
+          "S03.Remnant": "VCUAE",
+          "S04.Claim": "V",
+          "S09.Notify": "VCU",
+          "S02.MachineRepair": "V",
+          "S03.DeliveryTrace": "VP",
+          "S03.MaterialCard": "VCUAEP",
+          "S04.Diversion": "VCA",
+          "S04.DiversionQa": "V",
+          "S09.Parameter": "V",
+          "S03.Scrap": "V",
+          "S09.Dashboard": "V",
+          "S09.Report": "VE",
+          "S03.QuoteView": "V"
+        },
+        "departments": [
+          {
+            "code": "PMC",
+            "name": "生管課",
+            "jobTitle": "生管課長",
+            "isManager": true
+          }
+        ],
+        "assignedRoles": []
+      }
+    },
+    {
+      "code": "M0006",
+      "title": "生管",
+      "desc": "工單、放行、合批；預設看不到金額",
+      "user": {
+        "account": "M0006",
+        "userName": "陳怡君",
+        "empNo": "M112040801",
+        "roles": [
+          "PMC",
+          "WH"
+        ],
+        "rights": {
+          "S01.Item": "VE",
+          "S01.Product": "VCUE",
+          "S01.Customer": "V",
+          "S01.Vendor": "V",
+          "S01.Code": "V",
+          "S01.Reason": "V",
+          "S02.SalesOrder": "V",
+          "S02.Priority": "V",
+          "S02.WorkOrder": "VCUP",
+          "S02.Gantt": "VU",
+          "S02.ReleaseNormal": "VA",
+          "S02.ReleaseManager": "V",
+          "S02.Print": "VP",
+          "S02.Batch": "VCU",
+          "S02.Planning": "VCU",
+          "S03.Stock": "VE",
+          "S03.Issue": "VCUP",
+          "S03.Trace": "VE",
+          "S03.Mrp": "VCE",
+          "S03.Purchase": "VU",
+          "S03.Outsource": "V",
+          "S03.Dispatch": "VCUP",
+          "S03.Adjust": "VC",
+          "S04.Exception": "VC",
+          "S04.Inspection": "V",
+          "S04.Rush": "VC",
+          "S04.Meeting": "V",
+          "S04.Alert": "VCU",
+          "S05.ExtraCost": "VC",
+          "S02.ReleaseGate": "V",
+          "S04.Special": "V",
+          "S03.Prep": "VCUAP",
+          "S02.Transfer": "VCUP",
+          "S02.Receive": "VC",
+          "S02.Shipment": "VCUAP",
+          "S02.Capacity": "V",
+          "S03.Remnant": "VCUE",
+          "S04.Claim": "V",
+          "S09.Notify": "VCU",
+          "S02.MachineRepair": "V",
+          "S03.DeliveryTrace": "VP",
+          "S03.MaterialCard": "VCUEP",
+          "S04.Diversion": "VC",
+          "S04.DiversionQa": "V",
+          "S03.Scrap": "VCP"
+        },
+        "departments": [
+          {
+            "code": "PMC",
+            "name": "生管課",
+            "jobTitle": "生管專員",
+            "isManager": false
+          }
+        ],
+        "assignedRoles": [
+          {
+            "code": "WH",
+            "name": "倉管",
+            "validTo": "2026-12-31T23:59:59"
+          }
+        ]
+      }
+    },
+    {
+      "code": "M0007",
+      "title": "生管（加掛報價檢視）",
+      "desc": "工單、放行、合批；可看採購單價與訂單金額",
+      "user": {
+        "account": "M0007",
+        "userName": "黃俊廷",
+        "empNo": "M113110401",
+        "roles": [
+          "PMC",
+          "PMC_COST"
+        ],
+        "rights": {
+          "S01.Item": "VE",
+          "S01.Product": "VCUE",
+          "S01.Customer": "V",
+          "S01.Vendor": "V",
+          "S01.Code": "V",
+          "S01.Reason": "V",
+          "S02.SalesOrder": "V",
+          "S02.Priority": "V",
+          "S02.WorkOrder": "VCUP",
+          "S02.Gantt": "VU",
+          "S02.ReleaseNormal": "VA",
+          "S02.ReleaseManager": "V",
+          "S02.Print": "VP",
+          "S02.Batch": "VCU",
+          "S02.Planning": "VCU",
+          "S03.Stock": "VE",
+          "S03.Issue": "V",
+          "S03.Trace": "VE",
+          "S03.Mrp": "VCE",
+          "S03.Purchase": "V",
+          "S03.Outsource": "V",
+          "S03.Dispatch": "VCUP",
+          "S04.Exception": "VC",
+          "S04.Inspection": "V",
+          "S04.Rush": "VC",
+          "S04.Meeting": "V",
+          "S04.Alert": "VCU",
+          "S05.ExtraCost": "VC",
+          "S02.ReleaseGate": "V",
+          "S04.Special": "V",
+          "S03.Prep": "VCUP",
+          "S02.Transfer": "VCUP",
+          "S02.Receive": "V",
+          "S05.VendorQuote": "V",
+          "S02.Shipment": "V",
+          "S02.Capacity": "V",
+          "S03.Remnant": "VCUE",
+          "S04.Claim": "V",
+          "S09.Notify": "VCU",
+          "S02.MachineRepair": "V",
+          "S03.DeliveryTrace": "VP",
+          "S03.MaterialCard": "VCUEP",
+          "S04.Diversion": "VC",
+          "S04.DiversionQa": "V",
+          "S03.Scrap": "V",
+          "S03.QuoteView": "V"
+        },
+        "departments": [
+          {
+            "code": "PMC",
+            "name": "生管課",
+            "jobTitle": "生管專員",
+            "isManager": false
+          }
+        ],
+        "assignedRoles": [
+          {
+            "code": "PMC_COST",
+            "name": "生管報價檢視",
+            "validTo": "2026-12-31T23:59:59"
+          }
+        ]
+      }
+    },
+    {
+      "code": "M0009",
+      "title": "採購",
+      "desc": "採購單、廠商報價、進貨",
+      "user": {
+        "account": "M0009",
+        "userName": "張家豪",
+        "empNo": "M110061201",
+        "roles": [
+          "PUR_MGR"
+        ],
+        "rights": {
+          "S01.Item": "V",
+          "S01.Product": "V",
+          "S01.Vendor": "VCUXAE",
+          "S01.Code": "V",
+          "S02.WorkOrder": "V",
+          "S02.Gantt": "V",
+          "S02.Batch": "V",
+          "S02.Planning": "V",
+          "S03.Stock": "VE",
+          "S03.Trace": "V",
+          "S03.Mrp": "VE",
+          "S03.Purchase": "VCUXAEP",
+          "S03.Outsource": "V",
+          "S03.Dispatch": "V",
+          "S04.Exception": "VC",
+          "S04.Meeting": "V",
+          "S04.Alert": "VCU",
+          "S05.Settlement": "V",
+          "S05.ExtraCost": "V",
+          "S09.Delegation": "C",
+          "S03.Prep": "V",
+          "S05.VendorQuote": "VCUXAP",
+          "S03.Remnant": "VE",
+          "S04.Claim": "V",
+          "S09.Notify": "VCU",
+          "S04.Diversion": "V",
+          "S03.Scrap": "VAEP",
+          "S09.Dashboard": "V",
+          "S09.Report": "V"
+        },
+        "departments": [
+          {
+            "code": "PUR",
+            "name": "採購課",
+            "jobTitle": "採購課長",
+            "isManager": true
+          }
+        ],
+        "assignedRoles": []
+      }
+    },
+    {
+      "code": "M0014",
+      "title": "品保主管",
+      "desc": "品檢放行與扣押、品質異常與色差替補檢測",
+      "user": {
+        "account": "M0014",
+        "userName": "周雅婷",
+        "empNo": "M108061501",
+        "roles": [
+          "QA_MGR"
+        ],
+        "rights": {
+          "S01.Item": "V",
+          "S01.Product": "V",
+          "S01.Vendor": "V",
+          "S01.Code": "V",
+          "S01.Reason": "VCU",
+          "S02.Priority": "V",
+          "S02.WorkOrder": "V",
+          "S02.Gantt": "V",
+          "S02.ReleaseNormal": "V",
+          "S02.ReleaseManager": "VA",
+          "S02.Batch": "V",
+          "S02.Planning": "V",
+          "S03.Stock": "V",
+          "S03.Issue": "V",
+          "S03.Trace": "VE",
+          "S03.Purchase": "VA",
+          "S03.Outsource": "VA",
+          "S03.Adjust": "V",
+          "S04.Exception": "VCA",
+          "S04.Inspection": "VCUA",
+          "S04.Meeting": "V",
+          "S04.Alert": "VU",
+          "S05.ExtraCost": "V",
+          "S09.Delegation": "C",
+          "S02.ReleaseGate": "V",
+          "S04.Special": "V",
+          "S03.Prep": "V",
+          "S02.Transfer": "V",
+          "S02.Receive": "VC",
+          "S02.Shipment": "V",
+          "S03.Remnant": "V",
+          "S04.Claim": "VCUAE",
+          "S09.Notify": "VCU",
+          "S02.MachineRepair": "VU",
+          "S04.Diversion": "V",
+          "S04.DiversionQa": "VCUA",
+          "S03.Scrap": "V",
+          "S05.ScrapTax": "V",
+          "S04.QcSetup": "VCUXAEP",
+          "S09.Dashboard": "V",
+          "S09.Report": "VE"
+        },
+        "departments": [
+          {
+            "code": "QA",
+            "name": "品保課",
+            "jobTitle": "品保課長",
+            "isManager": true
+          }
+        ],
+        "assignedRoles": []
+      }
+    },
+    {
+      "code": "M0016",
+      "title": "倉儲主管",
+      "desc": "領料、收發料、出貨確認、庫存調整",
+      "user": {
+        "account": "M0016",
+        "userName": "鄭文彬",
+        "empNo": "M109081201",
+        "roles": [
+          "WH_MGR"
+        ],
+        "rights": {
+          "S01.Item": "V",
+          "S01.Product": "V",
+          "S01.Customer": "V",
+          "S01.Vendor": "V",
+          "S01.Code": "V",
+          "S01.Reason": "V",
+          "S02.SalesOrder": "V",
+          "S02.Priority": "V",
+          "S02.WorkOrder": "V",
+          "S02.Gantt": "V",
+          "S02.ReleaseNormal": "V",
+          "S02.Print": "VP",
+          "S02.Batch": "V",
+          "S02.Planning": "V",
+          "S03.Stock": "VE",
+          "S03.Issue": "VCUXP",
+          "S03.Trace": "VE",
+          "S03.Mrp": "V",
+          "S03.Purchase": "VU",
+          "S03.Outsource": "V",
+          "S03.Dispatch": "V",
+          "S03.Adjust": "VCUA",
+          "S04.Exception": "VC",
+          "S04.Inspection": "V",
+          "S04.Meeting": "V",
+          "S04.Alert": "VU",
+          "S09.Delegation": "C",
+          "S03.Prep": "VCUXAP",
+          "S02.Transfer": "V",
+          "S02.Receive": "VC",
+          "S02.Shipment": "VCUXAEP",
+          "S03.Remnant": "VCUE",
+          "S04.Claim": "V",
+          "S09.Notify": "VCU",
+          "S03.DeliveryTrace": "VP",
+          "S03.MaterialCard": "VCUAEP",
+          "S04.Diversion": "V",
+          "S03.Scrap": "VCUEP",
+          "S09.Dashboard": "V",
+          "S09.Report": "V"
+        },
+        "departments": [
+          {
+            "code": "WH",
+            "name": "倉儲課",
+            "jobTitle": "倉儲課長",
+            "isManager": true
+          }
+        ],
+        "assignedRoles": []
+      }
+    },
+    {
+      "code": "M0020",
+      "title": "會計主管",
+      "desc": "帳務、廠商結算、庫存差異與額外費用核准",
+      "user": {
+        "account": "M0020",
+        "userName": "劉美玲",
+        "empNo": "M108120101",
+        "roles": [
+          "ACC_MGR"
+        ],
+        "rights": {
+          "S01.Item": "V",
+          "S01.Customer": "VU",
+          "S01.Vendor": "VU",
+          "S01.Code": "V",
+          "S02.SalesOrder": "V",
+          "S03.Purchase": "V",
+          "S03.Outsource": "V",
+          "S03.Adjust": "VA",
+          "S05.Settlement": "VCUXAEP",
+          "S05.Payment": "VCUXAE",
+          "S05.ExtraCost": "VXAE",
+          "S05.Finance": "VE",
+          "S09.Delegation": "C",
+          "S09.Audit": "V",
+          "S05.VendorQuote": "VAP",
+          "S02.Shipment": "VE",
+          "S04.Claim": "VAE",
+          "S09.Notify": "VCU",
+          "S03.MaterialCard": "V",
+          "S05.ScrapTax": "VCUXAEP",
+          "S05.Ledger": "VCUXAEP",
+          "S05.Closing": "VCUXAEP",
+          "S05.CnGoods": "VCUXAEP",
+          "S09.Report": "VE"
+        },
+        "departments": [
+          {
+            "code": "ACC",
+            "name": "會計課",
+            "jobTitle": "會計課長",
+            "isManager": true
+          }
+        ],
+        "assignedRoles": []
+      }
+    }
+  ],
+  "files": {
+    "S01/Code": 1,
+    "S01/Item": 1,
+    "S01/Partner": 1,
+    "S01/Product": 1,
+    "S01/ProductDossier": 1,
+    "S02/Batch": 1,
+    "S02/Capacity": 1,
+    "S02/Checklist": 1,
+    "S02/Gantt": 1,
+    "S02/Machine": 1,
+    "S02/MachineRepair": 1,
+    "S02/PartDemand": 1,
+    "S02/ReleaseGate": 1,
+    "S02/SalesOrder": 1,
+    "S02/Shipment": 1,
+    "S02/UnitQueue": 1,
+    "S02/WorkOrder": 1,
+    "S03/Adjust": 1,
+    "S03/CardMismatch": 1,
+    "S03/DeliveryTrace": 1,
+    "S03/Dispatch": 1,
+    "S03/Disposition": 1,
+    "S03/Dispute": 1,
+    "S03/MaterialCard": 1,
+    "S03/Mrp": 1,
+    "S03/Outsource": 1,
+    "S03/PostRelease": 1,
+    "S03/Prep": 1,
+    "S03/Purchase": 1,
+    "S03/Remnant": 1,
+    "S03/Return": 1,
+    "S03/Scrap": 1,
+    "S03/ScrapTax": 1,
+    "S03/Stock": 1,
+    "S03/Transfer": 1,
+    "S04/Alert": 1,
+    "S04/Claim": 1,
+    "S04/DefectReplenish": 1,
+    "S04/Diversion": 1,
+    "S04/Exception": 1,
+    "S04/Inspection": 1,
+    "S04/InspectionAnalysis": 1,
+    "S04/InspectionItem": 1,
+    "S04/Meeting": 1,
+    "S04/QcGauge": 1,
+    "S04/Rush": 1,
+    "S05/BizReport": 1,
+    "S05/Closing": 1,
+    "S05/CnGoods": 1,
+    "S05/ExchangeRate": 1,
+    "S05/ExtraCost": 1,
+    "S05/Ledger": 1,
+    "S05/Settlement": 1,
+    "S05/Statements": 1,
+    "S05/VendorQuote": 1,
+    "S09/AnalysisReport": 1,
+    "S09/Asset": 1,
+    "S09/Attachment": 1,
+    "S09/Audit": 1,
+    "S09/Dashboard": 1,
+    "S09/Health": 1,
+    "S09/LineBinding": 1,
+    "S09/Notification": 1,
+    "S09/Organization": 1,
+    "S09/SystemParameter": 1
+  },
+  "roleFiles": {
+    "M0003": [
+      "S01/ProductDossier",
+      "S02/Checklist",
+      "S02/WorkOrder",
+      "S04/InspectionAnalysis",
+      "S09/AnalysisReport",
+      "S09/Dashboard",
+      "S09/Health",
+      "S09/Organization"
+    ],
+    "M0004": [
+      "S01/Partner",
+      "S02/Gantt",
+      "S02/UnitQueue",
+      "S09/Health"
+    ],
+    "M0005": [
+      "S01/ProductDossier",
+      "S02/Checklist",
+      "S02/Shipment",
+      "S02/UnitQueue",
+      "S02/WorkOrder",
+      "S03/Adjust",
+      "S03/Disposition",
+      "S04/InspectionAnalysis",
+      "S09/AnalysisReport",
+      "S09/Audit",
+      "S09/Dashboard",
+      "S09/Health",
+      "S09/Organization"
+    ],
+    "M0006": [
+      "S01/ProductDossier",
+      "S02/Checklist",
+      "S02/SalesOrder",
+      "S02/Shipment",
+      "S02/UnitQueue",
+      "S02/WorkOrder",
+      "S03/Adjust",
+      "S03/DeliveryTrace",
+      "S03/Disposition",
+      "S03/Purchase",
+      "S03/Remnant",
+      "S04/InspectionAnalysis",
+      "S09/Health"
+    ],
+    "M0007": [
+      "S01/ProductDossier",
+      "S02/Checklist",
+      "S02/UnitQueue",
+      "S03/DeliveryTrace",
+      "S04/InspectionAnalysis",
+      "S09/Health"
+    ],
+    "M0009": [
+      "S01/Partner",
+      "S01/ProductDossier",
+      "S02/Checklist",
+      "S02/UnitQueue",
+      "S09/AnalysisReport",
+      "S09/Dashboard",
+      "S09/Health"
+    ],
+    "M0014": [
+      "S01/Partner",
+      "S01/ProductDossier",
+      "S02/Checklist",
+      "S02/Shipment",
+      "S02/UnitQueue",
+      "S02/WorkOrder",
+      "S03/Remnant",
+      "S04/InspectionAnalysis",
+      "S09/AnalysisReport",
+      "S09/Dashboard",
+      "S09/Health"
+    ],
+    "M0016": [
+      "S01/ProductDossier",
+      "S02/Checklist",
+      "S02/SalesOrder",
+      "S02/Shipment",
+      "S02/UnitQueue",
+      "S03/Adjust",
+      "S03/DeliveryTrace",
+      "S03/Disposition",
+      "S03/Purchase",
+      "S03/Remnant",
+      "S04/Alert",
+      "S04/InspectionAnalysis",
+      "S09/AnalysisReport",
+      "S09/Dashboard",
+      "S09/Health"
+    ],
+    "M0020": [
+      "S02/Shipment",
+      "S09/AnalysisReport",
+      "S09/Audit",
+      "S09/Health"
+    ]
+  },
+  "roleShards": {
+    "M0003": {
+      "S01/ProductDossier": 1,
+      "S02/Checklist": 1,
+      "S02/WorkOrder": 1,
+      "S04/InspectionAnalysis": 1,
+      "S09/AnalysisReport": 1,
+      "S09/Dashboard": 1,
+      "S09/Health": 1,
+      "S09/Organization": 1
+    },
+    "M0004": {
+      "S01/Partner": 1,
+      "S02/Gantt": 1,
+      "S02/UnitQueue": 1,
+      "S09/Health": 1
+    },
+    "M0005": {
+      "S01/ProductDossier": 1,
+      "S02/Checklist": 1,
+      "S02/Shipment": 1,
+      "S02/UnitQueue": 1,
+      "S02/WorkOrder": 1,
+      "S03/Adjust": 1,
+      "S03/Disposition": 1,
+      "S04/InspectionAnalysis": 1,
+      "S09/AnalysisReport": 1,
+      "S09/Audit": 1,
+      "S09/Dashboard": 1,
+      "S09/Health": 1,
+      "S09/Organization": 1
+    },
+    "M0006": {
+      "S01/ProductDossier": 1,
+      "S02/Checklist": 1,
+      "S02/SalesOrder": 1,
+      "S02/Shipment": 1,
+      "S02/UnitQueue": 1,
+      "S02/WorkOrder": 1,
+      "S03/Adjust": 1,
+      "S03/DeliveryTrace": 1,
+      "S03/Disposition": 1,
+      "S03/Purchase": 1,
+      "S03/Remnant": 1,
+      "S04/InspectionAnalysis": 1,
+      "S09/Health": 1
+    },
+    "M0007": {
+      "S01/ProductDossier": 1,
+      "S02/Checklist": 1,
+      "S02/UnitQueue": 1,
+      "S03/DeliveryTrace": 1,
+      "S04/InspectionAnalysis": 1,
+      "S09/Health": 1
+    },
+    "M0009": {
+      "S01/Partner": 1,
+      "S01/ProductDossier": 1,
+      "S02/Checklist": 1,
+      "S02/UnitQueue": 1,
+      "S09/AnalysisReport": 1,
+      "S09/Dashboard": 1,
+      "S09/Health": 1
+    },
+    "M0014": {
+      "S01/Partner": 1,
+      "S01/ProductDossier": 1,
+      "S02/Checklist": 1,
+      "S02/Shipment": 1,
+      "S02/UnitQueue": 1,
+      "S02/WorkOrder": 1,
+      "S03/Remnant": 1,
+      "S04/InspectionAnalysis": 1,
+      "S09/AnalysisReport": 1,
+      "S09/Dashboard": 1,
+      "S09/Health": 1
+    },
+    "M0016": {
+      "S01/ProductDossier": 1,
+      "S02/Checklist": 1,
+      "S02/SalesOrder": 1,
+      "S02/Shipment": 1,
+      "S02/UnitQueue": 1,
+      "S03/Adjust": 1,
+      "S03/DeliveryTrace": 1,
+      "S03/Disposition": 1,
+      "S03/Purchase": 1,
+      "S03/Remnant": 1,
+      "S04/Alert": 1,
+      "S04/InspectionAnalysis": 1,
+      "S09/AnalysisReport": 1,
+      "S09/Dashboard": 1,
+      "S09/Health": 1
+    },
+    "M0020": {
+      "S02/Shipment": 1,
+      "S09/AnalysisReport": 1,
+      "S09/Audit": 1,
+      "S09/Health": 1
+    }
+  },
+  "samples": [
+    {
+      "method": "GET",
+      "path": "/s05/bizreport/annual/export",
+      "params": {
+        "format": "xlsx"
+      },
+      "file": "files/biz-annual-xlsx.xlsx",
+      "fileName": "年度經營總結_2025-2026.xlsx"
+    },
+    {
+      "method": "GET",
+      "path": "/s05/bizreport/annual/export",
+      "params": {
+        "format": "pdf"
+      },
+      "file": "files/biz-annual-pdf.pdf",
+      "fileName": "年度經營總結_2025-2026.pdf"
+    },
+    {
+      "method": "GET",
+      "path": "/s05/bizreport/trend/export",
+      "params": {
+        "format": "xlsx"
+      },
+      "file": "files/biz-trend-xlsx.xlsx",
+      "fileName": "歷年趨勢_2025-2026.xlsx"
+    },
+    {
+      "method": "GET",
+      "path": "/s05/bizreport/trend/export",
+      "params": {
+        "format": "pdf"
+      },
+      "file": "files/biz-trend-pdf.pdf",
+      "fileName": "歷年趨勢_2025-2026.pdf"
+    },
+    {
+      "method": "GET",
+      "path": "/s05/statements/export",
+      "params": {
+        "format": "xlsx"
+      },
+      "file": "files/statements-xlsx.xlsx",
+      "fileName": "財務報表_ALL_2026-01-01_2026-11-11.xlsx"
+    },
+    {
+      "method": "GET",
+      "path": "/s05/statements/export",
+      "params": {
+        "format": "pdf"
+      },
+      "file": "files/statements-pdf.pdf",
+      "fileName": "財務報表_ALL_2026-01-01_2026-11-11.pdf"
+    },
+    {
+      "method": "GET",
+      "path": "/s04/inspection/report/74011884/export",
+      "params": {
+        "format": "docx"
+      },
+      "file": "files/qc-report-docx.docx",
+      "fileName": "品檢報告單_示範.docx"
+    },
+    {
+      "method": "GET",
+      "path": "/s04/inspection/report/74011884/export",
+      "params": {
+        "format": "pdf"
+      },
+      "file": "files/qc-report-pdf.pdf",
+      "fileName": "品檢報告單_示範.pdf"
+    },
+    {
+      "method": "GET",
+      "path": "/s02/shipment/192/export",
+      "params": {
+        "format": "docx"
+      },
+      "file": "files/shipment-docx.docx",
+      "fileName": "出貨單_示範.docx"
+    },
+    {
+      "method": "GET",
+      "path": "/s02/shipment/192/export",
+      "params": {
+        "format": "pdf"
+      },
+      "file": "files/shipment-pdf.pdf",
+      "fileName": "出貨單_示範.pdf"
+    },
+    {
+      "method": "POST",
+      "path": "/s03/deliverytrace/worksheet/25/export",
+      "params": {
+        "format": "docx"
+      },
+      "file": "files/worksheet-docx.docx",
+      "fileName": "工單流程卡_示範.docx"
+    },
+    {
+      "method": "POST",
+      "path": "/s03/deliverytrace/worksheet/25/export",
+      "params": {
+        "format": "pdf"
+      },
+      "file": "files/worksheet-pdf.pdf",
+      "fileName": "工單流程卡_示範.pdf"
+    },
+    {
+      "method": "GET",
+      "path": "/s03/stock/export",
+      "params": {
+        "kind": "lines"
+      },
+      "file": "files/stock-lines-xlsx.xlsx",
+      "fileName": "庫存明細_示範.xlsx"
+    },
+    {
+      "method": "GET",
+      "path": "/s03/stock/export",
+      "params": {
+        "kind": "summary"
+      },
+      "file": "files/stock-summary-xlsx.xlsx",
+      "fileName": "庫存彙總_示範.xlsx"
+    },
+    {
+      "method": "GET",
+      "path": "/s03/lottrace/export",
+      "params": {
+        "kind": "workorder"
+      },
+      "file": "files/lottrace-workorder-xlsx.xlsx",
+      "fileName": "履歷_示範工單.xlsx"
+    },
+    {
+      "method": "GET",
+      "path": "/s05/cngoods/export",
+      "params": {},
+      "file": "files/cn-goods-xlsx.xlsx",
+      "fileName": "大陸貨物進出_示範.xlsx"
+    },
+    {
+      "method": "GET",
+      "path": "/s05/ledger/journal/export",
+      "params": {},
+      "file": "files/ledger-journal-xlsx.xlsx",
+      "fileName": "分錄帳_示範.xlsx"
+    },
+    {
+      "method": "GET",
+      "path": "/s05/ledger/trial-balance/export",
+      "params": {},
+      "file": "files/ledger-trial-xlsx.xlsx",
+      "fileName": "試算表_示範.xlsx"
+    },
+    {
+      "method": "GET",
+      "path": "/s05/ledger/cn-report/export",
+      "params": {},
+      "file": "files/ledger-cn-xlsx.xlsx",
+      "fileName": "大陸帳冊_示範.xlsx"
+    },
+    {
+      "method": "GET",
+      "path": "/s05/settlement/export",
+      "params": {},
+      "file": "files/settlement-xlsx.xlsx",
+      "fileName": "廠商結算月結清單_示範.xlsx"
+    },
+    {
+      "method": "GET",
+      "path": "/s09/asset/export",
+      "params": {},
+      "file": "files/asset-xlsx.xlsx",
+      "fileName": "財產清冊_示範.xlsx"
+    },
+    {
+      "method": "GET",
+      "path": "/s09/audit/export",
+      "params": {
+        "kind": "change"
+      },
+      "file": "files/audit-change-xlsx.xlsx",
+      "fileName": "資料異動紀錄_示範.xlsx"
+    },
+    {
+      "method": "POST",
+      "path": "/s09/tableexport",
+      "params": {},
+      "file": "files/table-mrp-xlsx.xlsx",
+      "fileName": "MRP需求計畫_示範.xlsx"
+    },
+    {
+      "method": "POST",
+      "path": "/s09/tableexport",
+      "params": {},
+      "file": "files/table-remnant-xlsx.xlsx",
+      "fileName": "料頭清單_示範.xlsx"
+    },
+    {
+      "method": "POST",
+      "path": "/s09/tableexport",
+      "params": {},
+      "file": "files/table-planning-xlsx.xlsx",
+      "fileName": "生管每日檢核_示範.xlsx"
+    }
+  ]
+}

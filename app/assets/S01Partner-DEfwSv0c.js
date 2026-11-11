@@ -1,0 +1,1 @@
+import{l as e,o as t,s as n,u as r}from"./index-CymZf6Ix.js";var i=e=>n(`/S01/Partner`,e),a=e=>n(`/S01/Partner/${e}`),o=t=>e(`/S01/Partner`,t),s=(e,t)=>r(`/S01/Partner/${e}`,t),c=e=>t(`/S01/Partner/${e}`),l=()=>n(`/S01/Partner/sales-reps`);export{i as a,l as i,c as n,s as o,a as r,o as t};

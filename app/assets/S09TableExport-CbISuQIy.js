@@ -1,0 +1,1 @@
+import{c as e}from"./index-CymZf6Ix.js";import{c as t,t as n}from"./download-DEz4553q.js";async function r(r){let i=await e.post(`/S09/TableExport`,{...r,rows:r.rows.map(e=>e.map(e=>e??null))},{responseType:`blob`});n(i.data,`${r.fileName??r.title}_${t()}.xlsx`)}export{r as t};

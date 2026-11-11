@@ -1,0 +1,1 @@
+var e=new Map([`admin`,`gm`,`gmo`,`sales`,`pmcmgr`,`planner`,`planner2`,`purchmgr`,`purchaser`,`rdmgr`,`rd`,`forging`,`cnc`,`qc`,`qc2`,`warehouse`,`ext`,`fac`,`ga`,`accountant`,`equip`].map((e,t)=>[e,`M${String(t+1).padStart(4,`0`)}`]));function t(t){return t?e.get(t)??t:``}export{t};

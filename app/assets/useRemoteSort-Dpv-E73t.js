@@ -1,0 +1,1 @@
+import{it as e}from"./runtime-core.esm-bundler-yYatEv2G.js";function t(t){let n=e(null);function r(e){n.value=e,t()}return{sort:n,onSort:r}}export{t};

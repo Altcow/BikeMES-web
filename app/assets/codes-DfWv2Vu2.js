@@ -1,0 +1,1 @@
+import{it as e}from"./runtime-core.esm-bundler-yYatEv2G.js";import{r as t}from"./auth-B-CQKeEy.js";import{n}from"./S01-6Iaax3jn.js";var r=t(`codes`,()=>{let t=e(null),r=null;async function i(e=!1){return t.value&&!e||(r||=n().finally(()=>r=null),t.value=await r),t.value}return{tables:t,load:i}});export{r as t};
