@@ -1,1 +1,0 @@
-import{s as e}from"./index-CymZf6Ix.js";var t=()=>e(`/S09/Health`),n=()=>e(`/S09/Organization`),r=()=>e(`/S09/Organization/roles`);export{n,r,t};

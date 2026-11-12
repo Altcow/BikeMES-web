@@ -1139,25 +1139,143 @@
       "fileName": "資料異動紀錄_示範.xlsx"
     },
     {
-      "method": "POST",
-      "path": "/s09/tableexport",
-      "params": {},
-      "file": "files/table-mrp-xlsx.xlsx",
-      "fileName": "MRP需求計畫_示範.xlsx"
+      "method": "GET",
+      "path": "/s03/lottrace/export",
+      "params": {
+        "kind": "lot"
+      },
+      "file": "files/lottrace-lot-xlsx.xlsx",
+      "fileName": "履歷_示範批號.xlsx"
+    },
+    {
+      "method": "GET",
+      "path": "/s09/audit/export",
+      "params": {
+        "kind": "login"
+      },
+      "file": "files/audit-login-xlsx.xlsx",
+      "fileName": "登入紀錄_示範.xlsx"
+    },
+    {
+      "method": "GET",
+      "path": "/s09/audit/export",
+      "params": {
+        "kind": "operation"
+      },
+      "file": "files/audit-operation-xlsx.xlsx",
+      "fileName": "操作紀錄_示範.xlsx"
     },
     {
       "method": "POST",
       "path": "/s09/tableexport",
       "params": {},
-      "file": "files/table-remnant-xlsx.xlsx",
-      "fileName": "料頭清單_示範.xlsx"
+      "file": "files/table-ar-aging.xlsx",
+      "fileName": "客戶帳齡_示範.xlsx",
+      "titleMatch": "客戶帳齡"
     },
     {
       "method": "POST",
       "path": "/s09/tableexport",
       "params": {},
-      "file": "files/table-planning-xlsx.xlsx",
-      "fileName": "生管每日檢核_示範.xlsx"
+      "file": "files/table-machine-util-by-machine.xlsx",
+      "fileName": "機台稼動率_示範.xlsx",
+      "titleMatch": "機台稼動率"
+    },
+    {
+      "method": "POST",
+      "path": "/s09/tableexport",
+      "params": {},
+      "file": "files/table-machine-util-by-month.xlsx",
+      "fileName": "機台稼動率_示範.xlsx",
+      "titleMatch": "機台稼動率"
+    },
+    {
+      "method": "POST",
+      "path": "/s09/tableexport",
+      "params": {},
+      "file": "files/table-pareto-reason.xlsx",
+      "fileName": "不良柏拉圖_不良原因_示範.xlsx",
+      "titleMatch": "不良柏拉圖"
+    },
+    {
+      "method": "POST",
+      "path": "/s09/tableexport",
+      "params": {},
+      "file": "files/table-pareto-operation.xlsx",
+      "fileName": "不良柏拉圖_工序_示範.xlsx",
+      "titleMatch": "不良柏拉圖"
+    },
+    {
+      "method": "POST",
+      "path": "/s09/tableexport",
+      "params": {},
+      "file": "files/table-pareto-machine.xlsx",
+      "fileName": "不良柏拉圖_機台_示範.xlsx",
+      "titleMatch": "不良柏拉圖"
+    },
+    {
+      "method": "POST",
+      "path": "/s09/tableexport",
+      "params": {},
+      "file": "files/table-stale-stock.xlsx",
+      "fileName": "呆滯庫存_示範.xlsx",
+      "titleMatch": "呆滯庫存"
+    },
+    {
+      "method": "POST",
+      "path": "/s09/tableexport",
+      "params": {},
+      "file": "files/table-stale-stock-money.xlsx",
+      "fileName": "呆滯庫存_示範.xlsx",
+      "titleMatch": "呆滯庫存"
+    },
+    {
+      "method": "POST",
+      "path": "/s09/tableexport",
+      "params": {},
+      "file": "files/table-vendor-score.xlsx",
+      "fileName": "廠商品質評分_示範.xlsx",
+      "titleMatch": "廠商品質評分"
+    },
+    {
+      "method": "POST",
+      "path": "/s09/tableexport",
+      "params": {},
+      "file": "files/table-part-demand.xlsx",
+      "fileName": "零件需求_30天_示範.xlsx",
+      "titleMatch": "零件需求總覽"
+    },
+    {
+      "method": "POST",
+      "path": "/s09/tableexport",
+      "params": {},
+      "file": "files/table-mrp-purchase.xlsx",
+      "fileName": "MRP採購建議_示範.xlsx",
+      "titleMatch": "MRP採購建議"
+    },
+    {
+      "method": "POST",
+      "path": "/s09/tableexport",
+      "params": {},
+      "file": "files/table-mrp-outsource.xlsx",
+      "fileName": "MRP委外建議_示範.xlsx",
+      "titleMatch": "MRP委外建議"
+    },
+    {
+      "method": "POST",
+      "path": "/s09/tableexport",
+      "params": {},
+      "file": "files/table-remnant-matches.xlsx",
+      "fileName": "料頭可抵工單_示範.xlsx",
+      "titleMatch": "料頭可抵工單"
+    },
+    {
+      "method": "POST",
+      "path": "/s09/tableexport",
+      "params": {},
+      "file": "files/table-remnant-lots.xlsx",
+      "fileName": "料頭清單_示範.xlsx",
+      "titleMatch": "料頭清單"
     }
   ]
 }
