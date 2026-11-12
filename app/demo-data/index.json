@@ -1044,7 +1044,7 @@
     },
     {
       "method": "POST",
-      "path": "/s03/deliverytrace/worksheet/25/export",
+      "path": "/s03/deliverytrace/worksheet/74002499/export",
       "params": {
         "format": "docx"
       },
@@ -1053,7 +1053,7 @@
     },
     {
       "method": "POST",
-      "path": "/s03/deliverytrace/worksheet/25/export",
+      "path": "/s03/deliverytrace/worksheet/74002497/export",
       "params": {
         "format": "pdf"
       },
