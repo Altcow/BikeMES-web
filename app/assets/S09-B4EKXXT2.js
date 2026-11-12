@@ -1,0 +1,1 @@
+import{s as e}from"./index-CfmxqRAE.js";var t=()=>e(`/S09/Health`),n=()=>e(`/S09/Organization`),r=()=>e(`/S09/Organization/roles`);export{n,r,t};

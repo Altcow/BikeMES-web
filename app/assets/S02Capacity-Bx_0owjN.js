@@ -1,1 +1,0 @@
-import{s as e,u as t}from"./index-CRA8SVn7.js";var n=()=>e(`/S02/Capacity`),r=(e,n)=>t(`/S02/Capacity/${e}`,n),i=(t,n)=>e(`/S02/Capacity/load`,{from:t,to:n});export{n,r,i as t};
