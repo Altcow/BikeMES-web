@@ -3,99 +3,135 @@
 <head>
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
-<meta name="theme-color" content="#2B1A12">
+<meta name="theme-color" content="#0a1628">
 <title>BikeMES｜腳踏車工廠製造管理系統</title>
 <meta name="description" content="BikeMES 腳踏車工廠製造管理系統線上展示：訂單、工單、生產排程、物料、品質、出貨到會計，一個系統完成。">
-<link rel="preconnect" href="https://fonts.googleapis.com">
-<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link href="https://fonts.googleapis.com/css2?family=Noto+Serif+TC:wght@500;700;900&display=swap" rel="stylesheet">
+<link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 64 64'%3E%3Crect width='64' height='64' rx='14' fill='%230a1628'/%3E%3Ccircle cx='32' cy='32' r='17' fill='none' stroke='%23c7d3e3' stroke-width='5'/%3E%3Ccircle cx='32' cy='32' r='6' fill='%233b82f6'/%3E%3C/svg%3E">
 <style>
   :root {
-    --wood-d: #2B1A12; --wood-m: #4A2E1F;
-    --red: #B22A1E; --red-d: #7E1A12;
-    --gold: #C9A14A; --gold-l: #E8C87A;
-    --paper: #F3E6CC;
-    --serif: "Noto Serif TC", "DFKai-SB", "BiauKai", "標楷體", "Songti TC", "PMingLiU", serif;
+    --navy: #0a1628; --navy2: #102542; --blue: #2f7bff; --blue-l: #7fb2ff; --blue-d: #123f9c;
+    --steel-1: #f3f7fc; --steel-2: #c5d1e0; --steel-3: #8798ae; --steel-4: #5b6c84; --ink: #0d1b33;
   }
   * { box-sizing: border-box; margin: 0; padding: 0; }
   html, body { height: 100%; }
   body {
-    color: var(--paper); font-family: var(--serif); overflow: hidden;
-    background-color: var(--wood-d);
-    background-image:
-      radial-gradient(ellipse at 50% 30%, rgba(0, 0, 0, 0) 30%, rgba(0, 0, 0, .6) 100%),
-      linear-gradient(rgba(43, 26, 18, .35), rgba(43, 26, 18, .35)),
-      url(img/bg_wood.webp);
-    background-size: auto, auto, 512px 512px;
+    font-family: "Noto Sans TC", "Microsoft JhengHei", "PingFang TC", system-ui, -apple-system, "Segoe UI", sans-serif;
+    color: var(--steel-1); overflow: hidden; background: var(--navy);
     -webkit-tap-highlight-color: transparent;
   }
+  /* 背景：藍色鋼板，細密拉絲紋＋暗角＋藍色光暈 */
+  .bg { position: fixed; inset: 0; z-index: 0; pointer-events: none;
+    background:
+      radial-gradient(ellipse at 50% 22%, rgba(47, 123, 255, .28), transparent 55%),
+      radial-gradient(ellipse at 50% 55%, rgba(0, 0, 0, 0) 35%, rgba(2, 8, 20, .78) 100%),
+      repeating-linear-gradient(90deg, rgba(255, 255, 255, .028) 0 1px, rgba(255, 255, 255, 0) 1px 3px),
+      linear-gradient(180deg, #12294d, #0a1628 70%);
+  }
+  .gears { position: fixed; inset: 0; z-index: 1; pointer-events: none; overflow: hidden; }
+  .gear { position: absolute; color: #6f8fc4; opacity: .16; }
+  .gear svg { width: 100%; height: 100%; display: block; }
+  .gear.g1 { width: 58vmin; height: 58vmin; left: -14vmin; bottom: -16vmin; animation: spin 80s linear infinite; }
+  .gear.g2 { width: 34vmin; height: 34vmin; left: 28vmin; bottom: -14vmin; animation: spin 48s linear infinite reverse; }
+  .gear.g3 { width: 66vmin; height: 66vmin; right: -20vmin; top: -18vmin; animation: spin 100s linear infinite reverse; }
+  .gear.g4 { width: 26vmin; height: 26vmin; right: 22vmin; top: 6vmin; animation: spin 40s linear infinite; }
+
   .enter {
     position: fixed; inset: 0; z-index: 10; display: flex; flex-direction: column; align-items: center; justify-content: center;
     color: inherit; text-decoration: none; cursor: pointer; outline: none;
-    padding: max(16px, env(safe-area-inset-top)) 16px max(16px, env(safe-area-inset-bottom));
+    padding: max(16px, env(safe-area-inset-top)) 18px max(16px, env(safe-area-inset-bottom));
   }
-  .enter:focus-visible .seal-btn { outline: 3px solid var(--gold-l); outline-offset: 4px; }
+  .enter:focus-visible .btn { outline: 3px solid var(--blue-l); outline-offset: 5px; }
 
-  /* 頁首：屋簷＋匾額（與 GameHub 同一套圖） */
-  .hero {
-    width: 100%; max-width: 1100px; overflow: hidden;
-    -webkit-mask-image: linear-gradient(to right, transparent, #000 7%, #000 93%, transparent), linear-gradient(to bottom, #000 80%, transparent);
-    -webkit-mask-composite: source-in;
-    mask-image: linear-gradient(to right, transparent, #000 7%, #000 93%, transparent), linear-gradient(to bottom, #000 80%, transparent);
-    mask-composite: intersect;
-    opacity: 0; animation: rise 1s .1s ease forwards;
+  /* 頂端鏈條 */
+  .chain { position: fixed; left: 0; right: 0; top: 0; height: 34px; z-index: 6; pointer-events: none; opacity: .9;
+    background:
+      linear-gradient(180deg, rgba(0, 0, 0, .55), transparent),
+      url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='44' height='34' viewBox='0 0 44 34'%3E%3Cdefs%3E%3ClinearGradient id='m' x1='0' y1='0' x2='0' y2='1'%3E%3Cstop offset='0' stop-color='%23e9eff7'/%3E%3Cstop offset='.5' stop-color='%238fa1b8'/%3E%3Cstop offset='1' stop-color='%23566782'/%3E%3C/linearGradient%3E%3C/defs%3E%3Crect x='3' y='9' width='26' height='16' rx='8' fill='none' stroke='url(%23m)' stroke-width='4'/%3E%3Crect x='19' y='9' width='22' height='16' rx='8' fill='none' stroke='url(%23m)' stroke-width='4' opacity='.75'/%3E%3C/svg%3E") 0 0 / 44px 34px repeat-x;
+    border-bottom: 1px solid rgba(127, 178, 255, .35);
   }
-  .hero-in {
-    position: relative; width: 115vw; max-width: 1265px; left: 50%; transform: translateX(-50%);
-    aspect-ratio: 1536 / 780; container-type: inline-size;
-    background: var(--wood-d) url(img/header_eaves.webp) center / 100% 100% no-repeat;
-  }
-  .hero h1 {
-    position: absolute; left: 17.25%; width: 65.6%; top: 42.9%; height: 38.1%; margin: 0;
-    display: flex; flex-direction: column; align-items: center; justify-content: center; text-align: center;
-    color: var(--gold-l); font-weight: 900; font-size: 9.2cqw; line-height: 1.1; letter-spacing: .06em;
-    text-shadow: 0 2px 3px #000a, 0 0 12px #0008;
-  }
-  .hero h1 small { display: block; font-size: .36em; font-weight: 700; letter-spacing: .32em; margin-top: .25em; color: var(--paper); opacity: .95; }
 
-  .words { text-align: center; margin-top: clamp(-24px, -3vh, -6px); opacity: 0; animation: rise 1s .5s ease forwards; }
-  .rule {
-    display: flex; align-items: center; justify-content: center; gap: 14px; color: var(--gold);
-    font-size: 14px; letter-spacing: .5em; margin-bottom: 14px;
+  /* 銘牌：拉絲鋼板＋四顆鉚釘＋藍色飾條 */
+  .plate-wrap { width: min(92vw, 760px); opacity: 0; animation: rise 1s .15s ease forwards; }
+  .plate {
+    position: relative; text-align: center; padding: clamp(26px, 6.2vw, 50px) clamp(20px, 5vw, 56px) clamp(24px, 5.4vw, 44px);
+    border-radius: 16px; color: var(--ink);
+    background:
+      repeating-linear-gradient(90deg, rgba(255, 255, 255, .22) 0 1px, rgba(0, 0, 0, .04) 1px 3px),
+      linear-gradient(180deg, var(--steel-1) 0%, var(--steel-2) 38%, #dfe7f1 52%, var(--steel-3) 100%);
+    box-shadow:
+      inset 0 2px 0 rgba(255, 255, 255, .9), inset 0 -3px 0 rgba(40, 55, 80, .45),
+      inset 0 0 0 1px rgba(60, 80, 110, .5), 0 22px 60px rgba(0, 0, 0, .55), 0 0 0 5px #1a2f52, 0 0 0 7px rgba(127, 178, 255, .5), 0 0 60px rgba(47, 123, 255, .35);
   }
-  .rule::before, .rule::after { content: ""; width: clamp(36px, 10vw, 90px); height: 1px; background: linear-gradient(90deg, transparent, var(--gold)); }
-  .rule::after { transform: scaleX(-1); }
-  .tagline { font-size: clamp(13px, 3.1vw, 22px); letter-spacing: .1em; color: var(--gold-l); font-weight: 700; white-space: nowrap; }
-  .sub { margin-top: 10px; font-size: clamp(12.5px, 2.5vw, 14.5px); letter-spacing: .1em; line-height: 1.9; color: #D8C7A6; }
-
-  .seal-btn {
-    display: inline-block; margin-top: 30px; border: 8px solid var(--red);
-    border-image: url(img/btn_lacquer.webp) 31 fill / 8px stretch; background: none;
-    padding: 6px 38px; font: 700 clamp(17px, 3.6vw, 20px) / 1.5 var(--serif); letter-spacing: .34em; color: #FFF6E4;
-    text-shadow: 0 1px 1px var(--red-d); transition: filter .2s ease, transform .2s ease;
-    opacity: 0; animation: rise 1s .8s ease forwards;
+  .rivet { position: absolute; width: 16px; height: 16px; border-radius: 50%;
+    background: radial-gradient(circle at 35% 30%, #fff 0 12%, #c5d1e0 30%, #6b7c94 70%, #3d4d66 100%);
+    box-shadow: 0 1px 2px rgba(0, 0, 0, .5), inset 0 0 0 1px rgba(40, 55, 80, .5); }
+  .rivet.a { left: 14px; top: 14px; } .rivet.b { right: 14px; top: 14px; }
+  .rivet.c { left: 14px; bottom: 14px; } .rivet.d { right: 14px; bottom: 14px; }
+  .eyebrow { display: block; font-size: 12.5px; letter-spacing: .42em; padding-left: .42em; color: var(--blue-d); font-weight: 700; margin-bottom: 8px; }
+  .logo {
+    font-size: clamp(52px, 13.5vw, 112px); font-weight: 900; line-height: 1.02; letter-spacing: .01em; color: var(--ink);
+    text-shadow: 0 2px 0 rgba(255, 255, 255, .85), 0 -1px 0 rgba(0, 0, 0, .25);
   }
-  .enter:hover .seal-btn { filter: brightness(1.14); transform: translateY(-2px); }
-  .enter:active .seal-btn { filter: brightness(.82); }
-  .hint { margin-top: 16px; font-size: 12.5px; letter-spacing: .12em; color: #B9A98A; opacity: 0; animation: rise 1s 1s ease forwards; }
-  .foot { position: fixed; left: 0; right: 0; bottom: max(14px, env(safe-area-inset-bottom)); z-index: 5; text-align: center; font-size: 12px; letter-spacing: .1em; color: #9C8C70; pointer-events: none; }
+  .logo .mes { color: var(--blue-d); text-shadow: 0 2px 0 rgba(255, 255, 255, .8), 0 -1px 0 rgba(0, 0, 20, .3); }
+  .logo-sub { margin-top: 6px; font-size: clamp(16px, 3.8vw, 26px); font-weight: 700; letter-spacing: .38em; padding-left: .38em; color: #1d2f4d; text-shadow: 0 1px 0 rgba(255, 255, 255, .8); }
+  .stripe { height: 7px; margin: clamp(16px, 3.6vw, 26px) auto 0; width: 62%; border-radius: 4px;
+    background: repeating-linear-gradient(-55deg, var(--blue) 0 10px, #0b2a6b 10px 20px); box-shadow: 0 0 14px rgba(47, 123, 255, .6); }
 
+  .words { text-align: center; margin-top: clamp(22px, 4.4vw, 34px); opacity: 0; animation: rise 1s .5s ease forwards; }
+  .tagline { font-size: clamp(13px, 3vw, 21px); letter-spacing: .12em; font-weight: 700; color: var(--blue-l); white-space: nowrap; text-shadow: 0 0 16px rgba(47, 123, 255, .6); }
+  .sub { margin-top: 8px; font-size: clamp(12.5px, 2.5vw, 14.5px); letter-spacing: .12em; color: #a9bbd6; }
+
+  .btn {
+    position: relative; display: inline-block; margin-top: 26px; padding: 15px 52px; border-radius: 12px;
+    font-size: clamp(17px, 3.6vw, 20px); font-weight: 800; letter-spacing: .34em; padding-left: calc(52px + .34em); color: #fff; text-shadow: 0 1px 2px rgba(0, 20, 70, .8);
+    background: linear-gradient(180deg, #5b9bff 0%, #2f7bff 46%, #1650c8 54%, #123f9c 100%);
+    box-shadow: inset 0 1px 0 rgba(255, 255, 255, .65), inset 0 -2px 0 rgba(5, 25, 80, .6), 0 0 0 2px #0a2a6b, 0 10px 30px rgba(47, 123, 255, .5);
+    transition: transform .2s ease, filter .2s ease;
+    opacity: 0; animation: rise 1s .8s ease forwards, glow 2.8s 2s ease-in-out infinite;
+  }
+  .enter:hover .btn { filter: brightness(1.12); transform: translateY(-2px); }
+  .enter:active .btn { filter: brightness(.86); transform: none; }
+  .hint { margin-top: 14px; font-size: 12.5px; letter-spacing: .12em; color: #7f95b5; opacity: 0; animation: rise 1s 1s ease forwards; }
+  .foot { position: fixed; left: 0; right: 0; bottom: max(14px, env(safe-area-inset-bottom)); z-index: 5; text-align: center; font-size: 12px; letter-spacing: .1em; color: #6f86a8; pointer-events: none; }
+
+  @keyframes spin { to { transform: rotate(360deg); } }
   @keyframes rise { from { opacity: 0; transform: translateY(12px); } to { opacity: 1; transform: none; } }
-  @media (min-width: 700px) { .hero-in { width: 100%; left: 0; transform: none; } .hero h1 { font-size: 8.4cqw; } }
-  @media (prefers-reduced-motion: reduce) { .hero, .words, .seal-btn, .hint { animation: none; opacity: 1; } }
+  @keyframes glow { 0%, 100% { box-shadow: inset 0 1px 0 rgba(255, 255, 255, .65), inset 0 -2px 0 rgba(5, 25, 80, .6), 0 0 0 2px #0a2a6b, 0 10px 30px rgba(47, 123, 255, .5); } 50% { box-shadow: inset 0 1px 0 rgba(255, 255, 255, .65), inset 0 -2px 0 rgba(5, 25, 80, .6), 0 0 0 2px #0a2a6b, 0 10px 44px rgba(47, 123, 255, .85); } }
+  @media (max-width: 700px) { .gear.g1 { left: -22vmin; } .gear.g3 { right: -34vmin; } .rivet { width: 13px; height: 13px; } .rivet.a, .rivet.b { top: 10px; } .rivet.c, .rivet.d { bottom: 10px; } .rivet.a, .rivet.c { left: 10px; } .rivet.b, .rivet.d { right: 10px; } }
+  @media (prefers-reduced-motion: reduce) { .gear, .btn { animation: none; } .plate-wrap, .words, .btn, .hint { animation: none; opacity: 1; } }
 </style>
 </head>
 <body>
+  <div class="bg"></div>
+  <div class="gears" aria-hidden="true">
+    <svg width="0" height="0" style="position:absolute"><defs>
+      <symbol id="gear" viewBox="0 0 200 200"><path fill="currentColor" fill-rule="evenodd" d="M100 8l9 1.5 5 22 14 5 19-13 14 11-6 22 9 11 22 4 4 17-17 14v14l17 14-4 17-22 4-9 11 6 22-14 11-19-13-14 5-5 22-9 1.5-9-1.5-5-22-14-5-19 13-14-11 6-22-9-11-22-4-4-17 17-14v-14L9 98l4-17 22-4 9-11-6-22 14-11 19 13 14-5 5-22zm0 52a40 40 0 100 80 40 40 0 000-80zm0 24a16 16 0 110 32 16 16 0 010-32z"/></symbol>
+    </defs></svg>
+    <div class="gear g1"><svg><use href="#gear"/></svg></div>
+    <div class="gear g2"><svg><use href="#gear"/></svg></div>
+    <div class="gear g3"><svg><use href="#gear"/></svg></div>
+    <div class="gear g4"><svg><use href="#gear"/></svg></div>
+  </div>
+  <div class="chain" aria-hidden="true"></div>
+
   <a class="enter" href="app/#/login" aria-label="進入 BikeMES 展示系統">
-    <div class="hero"><div class="hero-in"><h1>BikeMES<small>製造管理系統</small></h1></div></div>
+    <div class="plate-wrap">
+      <div class="plate">
+        <i class="rivet a"></i><i class="rivet b"></i><i class="rivet c"></i><i class="rivet d"></i>
+        <span class="eyebrow">MANUFACTURING EXECUTION SYSTEM</span>
+        <div class="logo">Bike<span class="mes">MES</span></div>
+        <div class="logo-sub">製造管理系統</div>
+        <div class="stripe"></div>
+      </div>
+    </div>
     <div class="words">
-      <div class="rule">腳踏車工廠</div>
       <div class="tagline">訂單・工單・排程・物料・品質・出貨・會計</div>
-      <p class="sub">一個系統，一條龍完成</p>
-      <span class="seal-btn">進入展示</span>
+      <p class="sub">腳踏車工廠　一個系統，一條龍完成</p>
+      <span class="btn">進入展示</span>
       <p class="hint">點一下畫面任何地方，即可選擇身分進入系統</p>
     </div>
   </a>
+
   <div class="foot">線上展示版｜資料皆為模擬示範資料</div>
 </body>
 </html>
