@@ -2,12 +2,100 @@
 <html lang="zh-Hant">
 <head>
 <meta charset="utf-8">
-<meta name="viewport" content="width=device-width,initial-scale=1">
-<title>BikeMES 展示站</title>
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<meta name="theme-color" content="#2B1A12">
+<title>BikeMES｜腳踏車工廠製造管理系統</title>
+<meta name="description" content="BikeMES 腳踏車工廠製造管理系統線上展示：訂單、工單、生產排程、物料、品質、出貨到會計，一個系統完成。">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Noto+Serif+TC:wght@500;700;900&display=swap" rel="stylesheet">
 <style>
-body{margin:0;font-family:"Noto Sans TC","Microsoft JhengHei",sans-serif;background:#f5f7fa;color:#1f2937;display:flex;min-height:100vh;align-items:center;justify-content:center;text-align:center;padding:16px}
-h1{font-size:28px;margin:0 0 8px}p{color:#6b7280;margin:4px 0}
+  :root {
+    --wood-d: #2B1A12; --wood-m: #4A2E1F;
+    --red: #B22A1E; --red-d: #7E1A12;
+    --gold: #C9A14A; --gold-l: #E8C87A;
+    --paper: #F3E6CC;
+    --serif: "Noto Serif TC", "DFKai-SB", "BiauKai", "標楷體", "Songti TC", "PMingLiU", serif;
+  }
+  * { box-sizing: border-box; margin: 0; padding: 0; }
+  html, body { height: 100%; }
+  body {
+    color: var(--paper); font-family: var(--serif); overflow: hidden;
+    background-color: var(--wood-d);
+    background-image:
+      radial-gradient(ellipse at 50% 30%, rgba(0, 0, 0, 0) 30%, rgba(0, 0, 0, .6) 100%),
+      linear-gradient(rgba(43, 26, 18, .35), rgba(43, 26, 18, .35)),
+      url(img/bg_wood.webp);
+    background-size: auto, auto, 512px 512px;
+    -webkit-tap-highlight-color: transparent;
+  }
+  .enter {
+    position: fixed; inset: 0; z-index: 10; display: flex; flex-direction: column; align-items: center; justify-content: center;
+    color: inherit; text-decoration: none; cursor: pointer; outline: none;
+    padding: max(16px, env(safe-area-inset-top)) 16px max(16px, env(safe-area-inset-bottom));
+  }
+  .enter:focus-visible .seal-btn { outline: 3px solid var(--gold-l); outline-offset: 4px; }
+
+  /* 頁首：屋簷＋匾額（與 GameHub 同一套圖） */
+  .hero {
+    width: 100%; max-width: 1100px; overflow: hidden;
+    -webkit-mask-image: linear-gradient(to right, transparent, #000 7%, #000 93%, transparent), linear-gradient(to bottom, #000 80%, transparent);
+    -webkit-mask-composite: source-in;
+    mask-image: linear-gradient(to right, transparent, #000 7%, #000 93%, transparent), linear-gradient(to bottom, #000 80%, transparent);
+    mask-composite: intersect;
+    opacity: 0; animation: rise 1s .1s ease forwards;
+  }
+  .hero-in {
+    position: relative; width: 115vw; max-width: 1265px; left: 50%; transform: translateX(-50%);
+    aspect-ratio: 1536 / 780; container-type: inline-size;
+    background: var(--wood-d) url(img/header_eaves.webp) center / 100% 100% no-repeat;
+  }
+  .hero h1 {
+    position: absolute; left: 17.25%; width: 65.6%; top: 42.9%; height: 38.1%; margin: 0;
+    display: flex; flex-direction: column; align-items: center; justify-content: center; text-align: center;
+    color: var(--gold-l); font-weight: 900; font-size: 9.2cqw; line-height: 1.1; letter-spacing: .06em;
+    text-shadow: 0 2px 3px #000a, 0 0 12px #0008;
+  }
+  .hero h1 small { display: block; font-size: .36em; font-weight: 700; letter-spacing: .32em; margin-top: .25em; color: var(--paper); opacity: .95; }
+
+  .words { text-align: center; margin-top: clamp(-24px, -3vh, -6px); opacity: 0; animation: rise 1s .5s ease forwards; }
+  .rule {
+    display: flex; align-items: center; justify-content: center; gap: 14px; color: var(--gold);
+    font-size: 14px; letter-spacing: .5em; margin-bottom: 14px;
+  }
+  .rule::before, .rule::after { content: ""; width: clamp(36px, 10vw, 90px); height: 1px; background: linear-gradient(90deg, transparent, var(--gold)); }
+  .rule::after { transform: scaleX(-1); }
+  .tagline { font-size: clamp(13px, 3.1vw, 22px); letter-spacing: .1em; color: var(--gold-l); font-weight: 700; white-space: nowrap; }
+  .sub { margin-top: 10px; font-size: clamp(12.5px, 2.5vw, 14.5px); letter-spacing: .1em; line-height: 1.9; color: #D8C7A6; }
+
+  .seal-btn {
+    display: inline-block; margin-top: 30px; border: 8px solid var(--red);
+    border-image: url(img/btn_lacquer.webp) 31 fill / 8px stretch; background: none;
+    padding: 6px 38px; font: 700 clamp(17px, 3.6vw, 20px) / 1.5 var(--serif); letter-spacing: .34em; color: #FFF6E4;
+    text-shadow: 0 1px 1px var(--red-d); transition: filter .2s ease, transform .2s ease;
+    opacity: 0; animation: rise 1s .8s ease forwards;
+  }
+  .enter:hover .seal-btn { filter: brightness(1.14); transform: translateY(-2px); }
+  .enter:active .seal-btn { filter: brightness(.82); }
+  .hint { margin-top: 16px; font-size: 12.5px; letter-spacing: .12em; color: #B9A98A; opacity: 0; animation: rise 1s 1s ease forwards; }
+  .foot { position: fixed; left: 0; right: 0; bottom: max(14px, env(safe-area-inset-bottom)); z-index: 5; text-align: center; font-size: 12px; letter-spacing: .1em; color: #9C8C70; pointer-events: none; }
+
+  @keyframes rise { from { opacity: 0; transform: translateY(12px); } to { opacity: 1; transform: none; } }
+  @media (min-width: 700px) { .hero-in { width: 100%; left: 0; transform: none; } .hero h1 { font-size: 8.4cqw; } }
+  @media (prefers-reduced-motion: reduce) { .hero, .words, .seal-btn, .hint { animation: none; opacity: 1; } }
 </style>
 </head>
-<body><div><h1>BikeMES 腳踏車工廠管理系統</h1><p>展示站建置中，請稍後再來。</p></div></body>
+<body>
+  <a class="enter" href="app/#/login" aria-label="進入 BikeMES 展示系統">
+    <div class="hero"><div class="hero-in"><h1>BikeMES<small>製造管理系統</small></h1></div></div>
+    <div class="words">
+      <div class="rule">腳踏車工廠</div>
+      <div class="tagline">訂單・工單・排程・物料・品質・出貨・會計</div>
+      <p class="sub">一個系統，一條龍完成</p>
+      <span class="seal-btn">進入展示</span>
+      <p class="hint">點一下畫面任何地方，即可選擇身分進入系統</p>
+    </div>
+  </a>
+  <div class="foot">線上展示版｜資料皆為模擬示範資料</div>
+</body>
 </html>
