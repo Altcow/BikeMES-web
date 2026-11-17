@@ -99,6 +99,17 @@
   @keyframes glow { 0%, 100% { box-shadow: inset 0 1px 0 rgba(255, 255, 255, .65), inset 0 -2px 0 rgba(5, 25, 80, .6), 0 0 0 2px #0a2a6b, 0 10px 30px rgba(47, 123, 255, .5); } 50% { box-shadow: inset 0 1px 0 rgba(255, 255, 255, .65), inset 0 -2px 0 rgba(5, 25, 80, .6), 0 0 0 2px #0a2a6b, 0 10px 44px rgba(47, 123, 255, .85); } }
   @media (max-width: 700px) { .gear.g1 { left: -22vmin; } .gear.g3 { right: -34vmin; } .rivet { width: 13px; height: 13px; } .rivet.a, .rivet.b { top: 10px; } .rivet.c, .rivet.d { bottom: 10px; } .rivet.a, .rivet.c { left: 10px; } .rivet.b, .rivet.d { right: 10px; } }
   @media (prefers-reduced-motion: reduce) { .gear, .btn { animation: none; } .plate-wrap, .words, .btn, .hint { animation: none; opacity: 1; } }
+
+  /* 宣傳影片按鈕與燈箱（按鈕在連結之外，避免連結巢狀） */
+  .promo-btn { position: fixed; left: 50%; bottom: calc(52px + env(safe-area-inset-bottom)); transform: translateX(-50%); z-index: 30;
+    display: inline-flex; align-items: center; gap: 10px; padding: 11px 24px; border-radius: 40px; cursor: pointer; font: inherit; font-size: 16px; font-weight: 700; letter-spacing: 2px; color: var(--steel-1);
+    background: rgba(16, 37, 66, .82); border: 1.5px solid rgba(127, 178, 255, .55); backdrop-filter: blur(6px); box-shadow: 0 6px 20px rgba(0, 0, 0, .4); }
+  .promo-btn:hover, .promo-btn:focus-visible { background: rgba(47, 123, 255, .55); outline: none; }
+  .promo-btn i { width: 0; height: 0; border-left: 12px solid currentColor; border-top: 8px solid transparent; border-bottom: 8px solid transparent; }
+  .lightbox { position: fixed; inset: 0; z-index: 100; display: none; align-items: center; justify-content: center; background: rgba(2, 8, 20, .88); padding: 16px; }
+  .lightbox.open { display: flex; }
+  .lightbox video { max-width: 100%; max-height: 100%; border-radius: 12px; background: #000; box-shadow: 0 20px 60px rgba(0, 0, 0, .7); }
+  .lightbox .close { position: absolute; top: max(14px, env(safe-area-inset-top)); right: 16px; width: 44px; height: 44px; border-radius: 50%; border: 0; cursor: pointer; font-size: 28px; line-height: 44px; color: #fff; background: rgba(255, 255, 255, .16); }
 </style>
 </head>
 <body>
@@ -132,6 +143,13 @@
     </div>
   </a>
 
+
+  <button class="promo-btn" type="button" id="promoBtn" aria-label="觀看宣傳影片"><i></i>觀看宣傳影片</button>
+  <div class="lightbox" id="lightbox" role="dialog" aria-modal="true" aria-label="BikeMES 宣傳影片">
+    <button class="close" type="button" id="lbClose" aria-label="關閉">×</button>
+    <video id="promoVideo" controls playsinline preload="none"></video>
+  </div>
+
   <div class="foot">線上展示版｜資料皆為模擬示範資料</div>
 <script>
   // 點進展示系統：記下已從首頁進入，並清掉上次的登入，讓系統直接出現「選擇身分」
@@ -141,6 +159,21 @@
       ['bikemes.token', 'bikemes.user', 'bikemes.expiresAt'].forEach(function (k) { localStorage.removeItem(k); });
     } catch (e) { /* 無法使用儲存空間時照常進入 */ }
   });
+
+  // 宣傳影片：手機（窄螢幕或直立）播直式，其餘播橫式；開啟時才載入影片
+  (function () {
+    var btn = document.getElementById('promoBtn'), box = document.getElementById('lightbox'), vid = document.getElementById('promoVideo');
+    function open() {
+      var v = (window.innerWidth < 700 || window.innerHeight > window.innerWidth) ? 'v' : 'h';
+      vid.poster = 'video/promo-' + v + '.jpg'; vid.src = 'video/promo-' + v + '.mp4';
+      box.classList.add('open'); vid.play().catch(function () { /* 需手動按播放 */ });
+    }
+    function close() { box.classList.remove('open'); vid.pause(); vid.removeAttribute('src'); vid.load(); }
+    btn.addEventListener('click', open);
+    document.getElementById('lbClose').addEventListener('click', close);
+    box.addEventListener('click', function (e) { if (e.target === box) close(); });
+    document.addEventListener('keydown', function (e) { if (e.key === 'Escape') close(); });
+  })();
 </script>
 </body>
 </html>
