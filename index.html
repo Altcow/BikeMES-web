@@ -160,16 +160,38 @@
     } catch (e) { /* 無法使用儲存空間時照常進入 */ }
   });
 
-  // 宣傳影片：手機（窄螢幕或直立）播直式，其餘播橫式；開啟時才載入影片
+  // 宣傳影片：直立畫面播直式、橫向畫面播橫式；開啟時才載入影片。
+  // 播放中轉向會自動換另一支，並從同一秒接著播（兩支影片時間軸相同，皆 83.5 秒）。
   (function () {
     var btn = document.getElementById('promoBtn'), box = document.getElementById('lightbox'), vid = document.getElementById('promoVideo');
-    function open() {
-      var v = (window.innerWidth < 700 || window.innerHeight > window.innerWidth) ? 'v' : 'h';
-      vid.poster = 'video/promo-' + v + '.jpg'; vid.src = 'video/promo-' + v + '.mp4';
-      box.classList.add('open'); vid.play().catch(function () { /* 需手動按播放 */ });
+    var cur = '', timer = 0;
+    function want() { return window.innerHeight > window.innerWidth ? 'v' : 'h'; }
+    function load(v, at, playing) {
+      cur = v;
+      vid.preload = 'metadata';
+      vid.poster = 'video/promo-' + v + '.jpg';
+      vid.src = 'video/promo-' + v + '.mp4';
+      if (at > 0) {
+        vid.addEventListener('loadedmetadata', function f() {
+          vid.removeEventListener('loadedmetadata', f);
+          try { vid.currentTime = at; } catch (e) { /* 部分瀏覽器需等可播放 */ }
+        });
+      }
+      if (playing) vid.play().catch(function () { /* 需手動按播放 */ });
     }
-    function close() { box.classList.remove('open'); vid.pause(); vid.removeAttribute('src'); vid.load(); }
+    function open() { box.classList.add('open'); load(want(), 0, true); }
+    function close() { box.classList.remove('open'); clearTimeout(timer); vid.pause(); vid.removeAttribute('src'); vid.load(); cur = ''; }
+    function onTurn() {
+      if (!box.classList.contains('open')) return;
+      clearTimeout(timer);
+      timer = setTimeout(function () {
+        var v = want();
+        if (v !== cur) load(v, vid.currentTime || 0, !vid.paused && !vid.ended);
+      }, 250);
+    }
     btn.addEventListener('click', open);
+    window.addEventListener('resize', onTurn);
+    window.addEventListener('orientationchange', onTurn);
     document.getElementById('lbClose').addEventListener('click', close);
     box.addEventListener('click', function (e) { if (e.target === box) close(); });
     document.addEventListener('keydown', function (e) { if (e.key === 'Escape') close(); });
